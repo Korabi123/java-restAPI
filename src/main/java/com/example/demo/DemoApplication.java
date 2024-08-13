@@ -12,8 +12,8 @@ public class DemoApplication {
     public static void main(String[] args) {
       SpringApplication.run(DemoApplication.class, args);
     }
-    @GetMapping("/addNumbers")
-    public @ResponseBody String hello(@RequestParam("a") String firstNumber, @RequestParam("b") String secondNumber) {
-      return String.format("The sum of %s and %s is %s", firstNumber, secondNumber, Integer.parseInt(firstNumber) + Integer.parseInt(secondNumber));
+    @GetMapping("/api/addNumbers")
+    public @ResponseBody String hello(@RequestParam("firstNum") int firstNumber, @RequestParam("secondNum") int secondNumber) {
+      return String.format("The sum of %s and %s is %s", firstNumber, secondNumber, firstNumber + secondNumber);
     }
 }
