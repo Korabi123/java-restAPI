@@ -10,6 +10,10 @@ A project for learning to build REST API's with java (its a pain to code in java
 ```sh
 git clone https://github.com/Korabi123/java-restAPI.git
 ```
+### Go in the project directory
+```sh
+cd java-restAPI
+```
 ### Then run the development instance
 ```sh
 .\mvnw spring-boot:run
