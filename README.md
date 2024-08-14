@@ -34,6 +34,12 @@ cd target\classes && java com/example/demo/ConsoleApp
   GET /api/getUsers
 ```
 
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `userId` | `string` | **Optional**. Get a user by their id (coming soon) |
+| `email` | `string` | **Optional**. Get a user by their email (coming soon) |
+| `name` | `string` | **Optional**. Gets all users with the same name (coming soon) |
+
 ```http
    POST /api/createUser
 ```
@@ -50,6 +56,8 @@ cd target\classes && java com/example/demo/ConsoleApp
 
 #### Some goals for this project are
 
-- [ ] Add a hashing algorithm (serverside) so that the passowrds don't get saved as plaintext
-- [ ] Add login functionality (oversimplified ofc) with tokens that are saved to a variable 💀
+- [ ] Add a hashing algorithm (serverside) so that the passwords don't get saved as plaintext
+- [ ] Add login functionality (oversimplified ofc) with session tokens that are saved to a variable 💀
 - [ ] Add some "hooks" (whatever you call them in java 💀) to get a user by id and get a user by email
+- [ ] Add a config file for customizability
+- [ ] And lastly add a database cuz who actually uses arrays to store users???
