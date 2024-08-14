@@ -57,6 +57,7 @@ cd target\classes && java com/example/demo/ConsoleApp
 #### Some goals for this project are
 
 - [ ] Add a hashing algorithm (serverside) so that the passwords don't get saved as plaintext
+- [ ] Add serverside validation so users can't directly request to server and create users without the needed information
 - [ ] Add login functionality (oversimplified ofc) with session tokens that are saved to a variable 💀
 - [ ] Add some "hooks" (whatever you call them in java 💀) to get a user by id and get a user by email
 - [ ] Add a config file for customizability
