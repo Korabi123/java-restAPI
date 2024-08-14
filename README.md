@@ -59,6 +59,6 @@ cd target\classes && java com/example/demo/ConsoleApp
 - [ ] Add a hashing algorithm (serverside) so that the passwords don't get saved as plaintext
 - [ ] Add serverside validation so users can't directly request to server and create users without the needed information
 - [ ] Add login functionality (oversimplified ofc) with session tokens that are saved to a variable 💀
-- [ ] Add some "hooks" (whatever you call them in java 💀) to get a user by id and get a user by email
+- [ ] Add optional params to the getUsers route to get a user by id, get a user by email and get multiple users by the same name
 - [ ] Add a config file for customizability
 - [ ] And lastly add a database cuz who actually uses arrays to store users???
