@@ -1,7 +1,7 @@
 
 # Simple SpringBoot REST API + CLI TESTER (cuz why the hell not)
 
-Oversimplified version of a authentication flow with springboot (for the REST API) and vanilla java (for the CLI)
+Oversimplified version of a authentication flow with springboot (for the REST API) and maven (for the CLI)
 
 
 ## Get Started
