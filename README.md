@@ -1,7 +1,7 @@
 
-# Simple SpringBoot REST API
+# Simple SpringBoot REST API + CLI TESTER (cuz why the hell not)
 
-A project for learning to build REST API's with java (its a pain to code in java 😭)
+Oversimplified version of a authentication flow with springboot (for the REST API) and vanilla java (for the CLI)
 
 
 ## Get Started
@@ -14,20 +14,42 @@ git clone https://github.com/Korabi123/java-restAPI.git
 ```sh
 cd java-restAPI
 ```
-### Then run the development instance
+### Setup the app
+```sh
+.\mvnw compile
+```
+### Run the API Server (!!Located at port 8080)
 ```sh
 .\mvnw spring-boot:run
 ```
+### Run the CLI
+```sh
+cd target\classes && java com/example/demo/ConsoleApp
+```
 ## API Reference
 
-#### Add numbers
+#### Authentication
 
 ```http
-  GET /api/addNumbers
+  GET /api/getUsers
+```
+
+```http
+   POST /api/createUser
 ```
 
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
-| `firstNum` | `integer` | **Required**. The first number |
-| `secondNum` | `integer` | **Required**. The second number |
+| `email` | `string` | **Required**. The user email |
+| `name` | `string` | **Required**. The user name |
+| `password` | `string` | **Required**. The user password |
 
+
+
+## Next Steps
+
+#### Some goals for this project are
+
+- [ ] Add a hashing algorithm (serverside) so that the passowrds don't get saved as plaintext
+- [ ] Add login functionality (oversimplified ofc) with tokens that are saved to a variable 💀
+- [ ] Add some "hooks" (whatever you call them in java 💀) to get a user by id and get a user by email
