@@ -31,5 +31,3 @@ cd java-restAPI
 | `firstNum` | `integer` | **Required**. The first number |
 | `secondNum` | `integer` | **Required**. The second number |
 
-
-
