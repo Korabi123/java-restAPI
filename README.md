@@ -44,7 +44,7 @@ cd target\classes && java com/example/demo/ConsoleApp
    POST /api/createUser
 ```
 
-| Parameter | Type     | Description                |
+| JSON Field | Type     | Description                |
 | :-------- | :------- | :------------------------- |
 | `email` | `string` | **Required**. The user email |
 | `name` | `string` | **Required**. The user name |
