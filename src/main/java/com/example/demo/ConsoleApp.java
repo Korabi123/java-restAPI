@@ -25,12 +25,18 @@ public class ConsoleApp {
         String registerFormInputPassword = getUserInput.nextLine();
         String registerUserUUID = UUID.randomUUID().toString();
 
-        //! Send the request to the api
-        RegisterAPIHandler requester = new RegisterAPIHandler();
-        String json = requester.bowlingJson(registerFormInputName, registerFormInputEmail, registerFormInputPassword, registerUserUUID);
-        String response = requester.post("http://localhost:8080/api/createUser", json);
-        System.out.println("\nUser created successfully!\n");
-        System.out.println(response);
+        if (registerFormInputName.equals("") || registerFormInputEmail.equals("") || registerFormInputPassword.equals("")) {
+            System.out.println("Please enter a valid name, email and password");
+        } else if (registerFormInputName.length() < 3 || registerFormInputEmail.length() < 3 || registerFormInputPassword.length() < 3) {
+            System.out.println("Please enter a valid name, email and password");
+        } else {
+            //! Send the request to the api
+            RegisterAPIHandler requester = new RegisterAPIHandler();
+            String json = requester.bowlingJson(registerFormInputName, registerFormInputEmail, registerFormInputPassword, registerUserUUID);
+            String response = requester.post("http://localhost:8080/api/createUser", json);
+            System.out.println("\nUser created successfully!\n");
+            System.out.println(response);
+        }
 
         getUserInput.close();
 
