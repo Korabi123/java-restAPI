@@ -1,11 +1,16 @@
 package com.example.demo;
 
 import java.io.IOException;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 import java.util.Scanner;
 import java.util.UUID;
 
 public class ConsoleApp {
-    public static void main(String[] args) throws IOException {
+
+    public static void main(String[] args) throws IOException, InterruptedException {
         Scanner getUserInput = new Scanner(System.in);
 
         //! Formatting
@@ -30,12 +35,22 @@ public class ConsoleApp {
         } else if (registerFormInputName.length() < 3 || registerFormInputEmail.length() < 3 || registerFormInputPassword.length() < 3) {
             System.out.println("Please enter a valid name, email and password");
         } else {
+            //! Initialize the request
+
+            HttpRequest request = HttpRequest.newBuilder()
+                    .POST(HttpRequest.BodyPublishers.ofString(String.format("[{\"name\":\"%s\", \"email\":\"%s\", \"password\":\"%s\", \"userId\":\"%s\"}]", registerFormInputName, registerFormInputEmail, registerFormInputPassword, registerUserUUID)))
+                    .uri(URI.create("http://localhost:8080/api/createUser"))
+                    .header("Content-Type", "application/json")
+                    .build();
+
             //! Send the request to the api
-            RegisterAPIHandler requester = new RegisterAPIHandler();
-            String json = requester.bowlingJson(registerFormInputName, registerFormInputEmail, registerFormInputPassword, registerUserUUID);
-            String response = requester.post("http://localhost:8080/api/createUser", json);
-            System.out.println("\nUser created successfully!\n");
-            System.out.println(response);
+            HttpResponse<String> response = HttpClient.newHttpClient()
+                    .send(request, HttpResponse.BodyHandlers.ofString());
+
+            System.out.println("\nUser created successfully!, status code: " + response.statusCode() + "\n");
+            System.out.println(response.body());
+
+
         }
 
         getUserInput.close();
