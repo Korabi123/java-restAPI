@@ -14,7 +14,7 @@ public class UserController {
 
   @PostMapping("/api/createUser")
   public List<User> createUser(@RequestBody List<User> users) {
-    this.users.addAll(users);
+    this.users.add(users.get(0));
     return users;
   }
 
